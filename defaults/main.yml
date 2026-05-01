@@ -1,37 +1,5 @@
-# ansible-role-rustdesk-server-docker
-
-Ansible role rustdesk server in docker compose.
-
-<img src="https://github.com/foi/ansible-role-rustdesk-docker/workflows/ci.yml/badge.svg?branch=main">
-
-Compatibility
---------------
-
-python: 3.12, 3.13, 3.14
-ansible: 12, 13
-
-prerequisites
---------------
-
-docker and docker-compose should be installed in advance.
-
-Install
---------------
-
-`ansible-galaxy role install foi.rustdesk_server_docker`
-
-or add it in `requirements.yml`
-
-```
-roles:
-  - name: foi.rustdesk_server_docker
-```
-
-and run `ansible-galaxy install -r requirements.yml`
-
-Role Variables
---------------
-```yml
+# code: language=ansible
+# vim: set filetype=yaml.ansible :
 ---
 rustdesk_server_docker_root_path: /opt/rustdesk-server
 rustdesk_server_docker_root_path_mode: '0775'
@@ -144,27 +112,3 @@ rustdesk_server_docker_compose_template: |
   {% if rustdesk_server_docker_compose_out_of_service_template is not none %}
   {{ rustdesk_server_docker_compose_out_of_service_template | to_nice_yaml(indent=2) }}
   {% endif %}
-```
-
-Example Playbook
-----------------
-```yml
-# inventory
-[rustdesk_server]
-rustdesk-server
-# playbook.yml
-- hosts: rustdesk_server
-  roles:
-    - role: foi.rustdesk_server_docker
-  become: true
-# host_vars/rustdesk-server.yml
-rustdesk_server_docker_domain: "yourdomainname.com"
-# below if you don't want to use automatically created docker volume
-rustdesk_server_docker_volumes:
-  - /mnt:/root
-rustdesk_server_docker_compose_out_of_service_template: null
-```
-License
--------
-
-MIT

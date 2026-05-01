@@ -1,0 +1,21 @@
+# code: language=ansible
+# vim: set filetype=yaml.ansible :
+---
+- name: "create root dir"
+  ansible.builtin.file:
+    path: "{{ rustdesk_server_docker_root_path }}"
+    mode: "{{ rustdesk_server_docker_root_path_mode }}"
+    owner: "{{ rustdesk_server_docker_root_path_owner }}"
+    group: "{{ rustdesk_server_docker_root_path_group }}"
+    state: directory
+
+- name: "render compose.yml"
+  ansible.builtin.copy:
+    content: "{{ rustdesk_server_docker_compose_template }}"
+    dest: "{{ rustdesk_server_docker_root_path }}/compose.yml"
+    mode: '0644'
+    owner: "{{ rustdesk_server_docker_root_path_owner }}"
+    group: "{{ rustdesk_server_docker_root_path_group }}"
+  notify:
+    - "docker compose up"
+    - "docker compose restart"

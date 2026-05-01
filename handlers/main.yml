@@ -1,0 +1,12 @@
+# code: language=ansible
+# vim: set filetype=yaml.ansible :
+---
+- name: "docker compose up"
+  community.docker.docker_compose_v2:
+    state: present
+    project_src: "{{ rustdesk_server_docker_root_path }}"
+
+- name: "docker compose restart"
+  community.docker.docker_compose_v2:
+    project_src: "{{ rustdesk_server_docker_root_path }}"
+    state: restarted
