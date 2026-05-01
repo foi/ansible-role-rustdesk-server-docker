@@ -1,8 +1,8 @@
 ---
 galaxy_info:
-  role_name: victoriametrics_docker
+  role_name: rustdesk_server_docker
   author: foi
-  description: victoriametrics docker ansible role
+  description: rustdesk_server_docker ansible role
   platforms:
     - name: Fedora
       versions:
@@ -19,9 +19,7 @@ galaxy_info:
   min_ansible_version: "2.16"
 
   galaxy_tags:
-    - victoriametrics
-    - vmalert
-    - logging
+    - rustdesk
     - docker
 
 dependencies: []
