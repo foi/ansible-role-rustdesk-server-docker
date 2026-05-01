@@ -9,10 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the codebase.
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Set up Python 3.
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v4
         with:
           python-version: '3.13'
 
@@ -39,10 +39,10 @@ jobs:
           - debian13
     steps:
       - name: Check out the codebase.
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Set up Python 3.
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python }}
 
