@@ -30,11 +30,8 @@ jobs:
       matrix:
         python:
           - 3.14
-          - 3.13
-          - 3.12
         ansible:
           - 13
-          - 12
         os:
           - debian13
     steps:
@@ -60,3 +57,4 @@ jobs:
           PYTHON_VERSION: ${{ matrix.python }}
           ANSIBLE_VERSION: ${{ matrix.ansible }}
           OS_VERSION: ${{ matrix.os }}
+          MOLECULE_DEBUG: '1'
