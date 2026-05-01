@@ -2,7 +2,7 @@
 
 Ansible role rustdesk server in docker compose.
 
-<img src="https://github.com/foi/ansible-role-rustdesk-docker/workflows/ci.yml/badge.svg?branch=main">
+<img src="https://github.com/foi/ansible-role-rustdesk-server-docker/workflows/ci.yml/badge.svg?branch=main">
 
 Compatibility
 --------------
